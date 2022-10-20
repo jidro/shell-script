@@ -1,0 +1,5 @@
+deb https://mirrors.tuna.tsinghua.edu.cn/raspberrypi buster main
+deb https://mirrors.tuna.tsinghua.edu.cn/raspberrypi bullseye main
+# Uncomment line below then 'apt-get update' to enable 'apt-get source'
+#deb-src https://mirrors.tuna.tsinghua.edu.cn/raspberrypi buster main
+#deb-src https://mirrors.tuna.tsinghua.edu.cn/raspberrypi bullseye main
