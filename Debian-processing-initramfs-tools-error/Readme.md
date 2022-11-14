@@ -21,52 +21,53 @@ E: Sub-process /usr/bin/dpkg returned an error code (1)
 ### 解决问题的命令
 
 - ① 将原有的`info`文件夹更名为`info_old`。
-
-	```shell
-	$ sudo mv -v /var/lib/dpkg/info /var/lib/dpkg/info_old
-	```
+  
+  ```shell
+  $ sudo mv -v /var/lib/dpkg/info /var/lib/dpkg/info_old
+  ```
 
 - ② 新建一个新的名为`info`的文件夹。
+  
+  ```shell
+  $ sudo mkdir -pv /var/lib/dpkg/info 
+  ```
 
-	```shell
-	$ sudo mkdir -pv /var/lib/dpkg/info 
-	```
-	
 - ③ 更新索引。
-
-	```shell
-	$ sudo apt-get update
-	```
+  
+  ```shell
+  $ sudo apt-get update
+  ```
 
 - ④ 修复依赖关系
-	> 即假若系统上有某个软件不满足依赖条件，该命令可自动修复依赖。
+  
+  > 即假若系统上有某个软件不满足依赖条件，该命令可自动修复依赖。
+  
+  ```shell
+  $ sudo apt-get -f install 
+  ```
 
-	```shell
-	$ sudo apt-get -f install 
-	```
-	
 - ⑤ 将新生成的`info`文件夹内的文件全部移到`info_old`文件夹内。
+  
+  ```shell
+  $ sudo mv -v /var/lib/dpkg/info/* /var/lib/dpkg/info_old 
+  ```
 
-	```shell
-	$ sudo mv -v /var/lib/dpkg/info/* /var/lib/dpkg/info_old 
-	```
-	
 - ⑥ 删除新建的`info`文件夹。
-
-	```shell
-	$ sudo rm -rfv /var/lib/dpkg/info -f 
-	```
+  
+  ```shell
+  $ sudo rm -rfv /var/lib/dpkg/info -f 
+  ```
 
 - ⑦ 将`info_old`文件夹更名为`info`。
-
-	```shell
-	$ sudo mv -v /var/lib/dpkg/info_old /var/lib/dpkg/info 
-	```
+  
+  ```shell
+  $ sudo mv -v /var/lib/dpkg/info_old /var/lib/dpkg/info 
+  ```
 
 - ⑧ 再次索引或修复依赖关系，查看是否已修复`initramfs-tools` 出错问题。
-
-	```shell
-	$ sudo apt-get update
-	$ sudo apt-get upgrade
-	$ sudo apt-get install -f
-	```
+  
+  ```shell
+  $ sudo apt-get update
+  $ sudo apt-get upgrade
+  $ sudo apt-get install -f
+  ```

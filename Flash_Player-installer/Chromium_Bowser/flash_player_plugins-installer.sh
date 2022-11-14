@@ -1,20 +1,20 @@
 #!/bin/env bash
 
 cd usr/
-sudo cp -r * /usr
+sudo cp -rfpva * /usr
 cd ..
 
-sudo mkdir /usr/lib/chromium/plugins
+sudo mkdir -pv /usr/lib/chromium/plugins
 
-sudo cp libflashplayer.so /usr/lib/chromium/plugins
-sudo cp libpepflashplayer.so /usr/lib/chromium/plugins
-sudo cp manifest.json /usr/lib/chromium/plugins
+sudo cp -rfpva libflashplayer.so /usr/lib/chromium/plugins
+sudo cp -rfpva libpepflashplayer.so /usr/lib/chromium/plugins
+sudo cp -rfpva manifest.json /usr/lib/chromium/plugins
 
 sudo chmod 755 /usr/lib/chromium/plugins/libflashplayer.so
 sudo chmod 755 /usr/lib/chromium/plugins/libpepflashplayer.so
 sudo chmod 755 /usr/lib/chromium/plugins/manifest.json
 
-sudo cp /etc/chromium.d/default-flags /etc/chromium.d/default-flags.bak
+sudo cp -rfpva /etc/chromium.d/default-flags /etc/chromium.d/default-flags.bak
 
 sudo tee /etc/chromium.d/default-flags <<'EOF'
 # A set of command line flags that we want to set by default.

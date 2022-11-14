@@ -4,30 +4,29 @@ Building and installing ibus-rime.
 
 Packages for Linux Distributions    
 
-Archlinux
+- Archlinux
 
-```
+```shell
 pacman -S ibus-rime
 ```
 
-Debian    
-Rime 已收錄於 Debian Jessie 及以上版本    
+- Debian    
+  Rime 已收錄於 Debian Jessie 及以上版本    
 
-```
+```shell
 sudo apt-get install ibus-rime # or fcitx-rime
-
 ```
 
-Gentoo
+- Gentoo
 
-```
+```shell
 emerge ibus-rime  # or fcitx-rime
 ```
 
-Ubuntu    
-Rime 已收錄於 Ubuntu 12.10 (Quantal Quetzal) 及以上版本    
+- Ubuntu    
+  Rime 已收錄於 Ubuntu 12.10 (Quantal Quetzal) 及以上版本    
 
-```
+```shell
 sudo apt-get install ibus-rime
 
 ibus restart
@@ -39,53 +38,75 @@ ibus engine rime
 （推薦使用 /plum/ 安裝最新版本）    
 
 # 朙月拼音（預裝）
-```
+
+```shell
 sudo apt-get install librime-data-luna-pinyin
 ```
+
 # 雙拼
-```
+
+```shell
 sudo apt-get install librime-data-double-pinyin
 ```
+
 # 宮保拼音
-```
+
+```shell
 sudo apt-get install librime-data-combo-pinyin
 ```
+
 # 注音、地球拼音
-```
+
+```shell
 sudo apt-get install librime-data-terra-pinyin librime-data-bopomofo
 ```
+
 # 倉頡五代（預裝）
-```
+
+```shell
 sudo apt-get install librime-data-cangjie5
 ```
+
 # 速成五代
-```
+
+```shell
 sudo apt-get install librime-data-quick5
 ```
+
 # 五筆86、袖珍簡化字拼音、五筆畫
-```
+
+```shell
 sudo apt-get install librime-data-wubi librime-data-pinyin-simp librime-data-stroke-simp
 ```
+
 # IPA (X-SAMPA)
-```
+
+```shell
 sudo apt-get install librime-data-ipa-xsampa
 ```
+
 # 上海吳語
-```
+
+```shell
 sudo apt-get install librime-data-wugniu
 ```
+
 # 粵拼
-```
+
+```shell
 sudo apt-get install librime-data-jyutping
 ```
+
 # 中古漢語拼音
-```
+
+```shell
 sudo apt-get install librime-data-zyenpheng
 ```
-Ubuntu PPA    
-for Ubuntu 12.04 and higher    
 
-```
+- Ubuntu PPA    
+  for Ubuntu 12.04 and higher    
+
+```shell
 # this repo provides libkyotocabinet, libgoogle-glog for Ubuntu 12.04;
 # these packages are officially supported since Ubuntu 12.10.
 sudo add-apt-repository ppa:fcitx-team/nightly
@@ -99,27 +120,29 @@ sudo apt-get install ibus-rime
 
 **Ubuntu 12.04 以下版本，參考下文的安裝手記。**
 
-Fedora 22+
+- Fedora 22+
 
-```
+```shell
 sudo dnf install ibus-rime
 ```
-Fedora 18/19
 
-```
+- Fedora 18/19
+
+```shell
 sudo yum install ibus-rime
 ```
 
-Fedora 17    
-swordswift: 因为fedora下没有打包好的安装包，所以我就做了一个安装源，也算是对作者的支持和感谢吧。    
+- Fedora 17    
+  swordswift: 因为fedora下没有打包好的安装包，所以我就做了一个安装源，也算是对作者的支持和感谢吧。    
+  
+  安装办法:
 
-安装办法:
-
-```
+```shell
 cd /etc/yum.repos.d/
 sudo wget http://heimu-packages.stor.sinaapp.com/fedora/heimu.repo
 sudo yum install ibus-rime
 ```
+
 有手藝、有時間、熱心腸的Linux技術高手！     
 請幫我把Rime打包到你喜愛的Linux發行版，分享給其他同學吧。    
 
@@ -127,7 +150,7 @@ Manual Installation
 Prerequisites    
 To build la rime, you need these tools and libraries:    
 
-```
+```shell
 cmake
 boost >= 1.46
 glog (for librime>=0.9.3)
@@ -145,7 +168,7 @@ Note: If your compiler doesn't fully support C++11, please checkout oldschool br
 Build and install ibus-rime    
 clone project and submodules:    
 
-```
+```shell
 git clone --recursive https://github.com/rime/ibus-rime.git
 cd ibus-rime
 # do this as normal user
@@ -162,19 +185,21 @@ Ubuntu 12.04 可直接使用上文給出的 PPA 安裝最新版本。
 
 # 安裝編譯工具
 
-```
+```shell
 sudo apt-get install build-essential cmake
 ```
 
 # 安裝程序庫
 
-```
+```shell
 sudo apt-get install libopencc-dev libz-dev libibus-1.0-dev libnotify-dev
 
 sudo apt-get install libboost-dev libboost-filesystem-dev libboost-regex-dev libboost-signals-dev libboost-system-dev libboost-thread-dev
 ```
+
 # 如果不嫌多，也可以安裝整套Boost開發包（敲字少：）
-```
+
+```she
 # sudo apt-get install libboost-all-dev
 
 

@@ -16,13 +16,13 @@ wget http://archive.raspberrypi.org/debian/raspberrypi.gpg.key
 sudo apt-key add raspberrypi.gpg.key
 
 # Create the sources.list.d folder.
-sudo mkdir /etc/apt/sources.list.d
+sudo mkdir -pv /etc/apt/sources.list.d
 
 # Create a pi.list file and write the raspberry PI mirror source to it.
 sudo echo "deb http://archive.raspberrypi.org/debian/ bullseye main" >> /etc/apt/sources.list.d/pi.list
 
 # If the previous step fails, simply copy the raspi.list file in this directory to /etc/apt/sources.list.d.
-sudo cp raspi.list /etc/apt/sources.list.d/
+sudo cp -rfpv raspi.list /etc/apt/sources.list.d/
 
 # Update the image source using apt or Aptitude tool.
 sudo aptitude update

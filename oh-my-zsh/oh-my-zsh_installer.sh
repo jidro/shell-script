@@ -17,7 +17,7 @@ cd fonts
 ./install.sh
 # clean-up a bit
 cd ..
-rm -rf fonts
+rm -rfv fonts
 
 mkdir ~/.config/fontconfig/conf.d
 sudo aptitude install wget -y

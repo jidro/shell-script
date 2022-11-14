@@ -1,24 +1,26 @@
-# Debian Linux 配置开关机动画 plymouth 使用教程
+# `Debian` 配置开关机动画 `plymouth` 使用教程
 
-## 一些小知识：
+> ## 一些小知识：
+> 
+> - `Plymouth`：本次所使用的开机动画程序。
+> 
+> - `Bootsplash`：第一款开机动画程序，目前已经被`Splashy`取代。
+> 
+> - `fbsplash`：为了取代`bootsplash`，`Gentoo`开发的新开机动画程序。
+> 
+> - `Splashy`：新的开机动画程序，以取代老化的`bootsplash`开机动画程序。
+> 
+> - `usplash`：`ubuntu`之前早期使用的开机动画程序。
+> 
+> - `XSplash`：`Ubuntu 9.10`开始使用的开机动画程序。
 
-* `Plymouth`：本次所使用的开机动画程序。
+-----
 
-* `Bootsplash`:第一款开机动画程序，目前已经被Splashy取代。
+## 安装 `plymouth`
 
-* `fbsplash`:为了取代`bootsplash`，Gentoo开发的新开机动画程序。
-
-* `Splashy`:新的开机动画程序，以取代老化的`bootsplash`开机动画程序。
-
-* `usplash`:ubuntu之前早期使用的开机动画程序。
-
-* `XSplash`:Ubuntu9.10开始使用的开机动画程序。
-  
-  -----
-
-## 安装 plymouth
-
-`sudo apt-get install plymouth plymouth-themes`
+```shell
+sudo apt-get install plymouth plymouth-themes
+```
 
 ## 修改 grub
 
@@ -30,12 +32,14 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
 
 ## 更新 grub
 
-`sudo update-grub`    
-`sudo update-grub2`
+```shell
+sudo update-grub 
+sudo update-grub2
+```
 
 ## 设置显卡
 
-> 编辑：`/etc/initramfs-tools/modules`
+> 使用文本编辑器编辑：`/etc/initramfs-tools/modules`
 
 ### 适用于英特尔显卡：
 
@@ -61,30 +65,34 @@ radeon modeset=1
 
 ## 选择动画主题
 
-$ `sudo plymouth-set-default-theme  -l`
+```shell
+$ sudo plymouth-set-default-theme -l
 
-> > futureprototype    
-> > details    
-> > fade-in    
-> > futureprototype    
-> > glow    
-> > joylines    
-> > moonlight    
-> > script    
-> > softwaves    
-> > solar    
-> > spacefun    
-> > spinfinity    
-> > spinnertext    
-> > tribar    
+futureprototype  
+details  
+fade-in  
+futureprototype  
+glow  
+joylines  
+moonlight  
+script  
+softwaves  
+solar  
+spacefun  
+spinfinity  
+spinnertext  
+tribar
+```
 
 ## 使用主题
 
-$ `sudo plymouth-set-default-theme  -R moonlight`
+```shell
+$ sudo plymouth-set-default-theme -R moonlight
+```
 
 ## 如果遇到报错
 
-```powershell
+```shell
 W: Possible missing firmware /lib/firmware/i915/kbl_dmc_ver1_01.bin for module i915
 W: Possible missing firmware /lib/firmware/i915/kbl_guc_ver9_14.bin for module i915
 W: Possible missing firmware /lib/firmware/i915/bxt_guc_ver8_7.bin for module i915
@@ -94,14 +102,16 @@ W: Possible missing firmware /lib/firmware/i915/bxt_guc_ver8_7.bin for module i9
 
 #### 英特尔显卡：
 
-`mkdir -p /lib/firmware/i915/`
+```shell
+mkdir -pv /lib/firmware/i915/
+```
 
-去[官网](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tree/i915)下载缺失的固件到创建的目录中
+- 请前往[官网](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tree/i915)以下载缺失的固件到创建的目录中。
 
 #### ATI图形卡：
 
 ```bash
-mkdir -p /lib/firmware/radeon/
+mkdir -pv /lib/firmware/radeon/
 ```
 
-去[官网](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tree/radeon)下载缺失的固件到创建的目录中
+- 请前往[官网](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tree/radeon)以下载缺失的固件到创建的目录中

@@ -2,7 +2,7 @@
 
 sudo apt-get install plymouth plymouth-themes -y
 
-sudo cp -a /etc/default/grub /etc/default/grub.bak
+sudo cp -rfpva /etc/default/grub /etc/default/grub.bak
 sudo sed -i "s@quiet@quiet splash@g" /etc/default/grub
 
 sudo update-grub
@@ -34,17 +34,17 @@ EOF
 
 # sudo plymouth-set-default-theme -R futureprototype
 
-sudo mkdir /lib/firmware/radeon
-sudo mkdir /lib/firmware/i915
-sudo mkdir /lib/firmware/nvidia
+sudo mkdir -pv /lib/firmware/radeon
+sudo mkdir -pv /lib/firmware/i915
+sudo mkdir -pv /lib/firmware/nvidia
 
 cd ../../../../
 
 cd 缺失固件/i915缺失固件/
-sudo cp * /lib/firmware/i915
+sudo cp -rfpva * /lib/firmware/i915
 
 cd ../
 cd radeon缺失固件/
-sudo cp * /lib/firmware/radeon
+sudo cp -rfpva * /lib/firmware/radeon
 
 sudo plymouth-set-default-theme -R futureprototype

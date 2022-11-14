@@ -13,12 +13,12 @@ sudo apt-get dist-upgrade -y
 
 # Clean
 
-#rm -rf /tmp/*
-#sudo rm -rf $HOME/.local/share/Trash/files/
-#sudo find /opt -name "*.log" -exec rm -rf {} \;
-rm -rf /tmp/*
-sudo find /opt -name "*.log" -exec rm -rf {} \;
-sudo rm -rf $HOME/.local/share/Trash/files/
+#rm -rfv /tmp/*
+#rm -rfv $HOME/.local/share/Trash/files/
+#sudo find /opt -name "*.log" -exec rm -rfv {} \;
+rm -rfv /tmp/*
+sudo find /opt -name "*.log" -exec rm -rfv {} \;
+rm -rfv $HOME/.local/share/Trash/files/
 sudo apt autoremove -y
 sudo aptitude autoclean -y
 sudo apt autoclean -y
