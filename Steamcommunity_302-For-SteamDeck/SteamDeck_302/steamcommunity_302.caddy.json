@@ -1,0 +1,57 @@
+{
+#Export From SteamCommunity302
+admin off
+auto_https disable_redirects
+}
+(PNA_CORS) {
+    @options {
+    method OPTIONS
+    }
+    respond @options 204
+    header {
+    Access-Control-Allow-Origin {http.request.header.Origin}
+    Access-Control-Allow-Credentials true
+    Access-Control-Allow-Methods *
+    Access-Control-Allow-Headers *
+    Access-Control-Allow-Private-Network true
+    Access-Control-Request-Private-Network true
+    defer
+    }
+}
+
+https://steamcommunity.com:443 https://www.steamcommunity.com:443 {
+    tls steamcommunity.crt steamcommunity.key
+    reverse_proxy https://steamuserimages-a.akamaihd.net.edgesuite.net https://steamstore-a.akamaihd.net.edgesuite.net https://eaassets-a.akamaihd.net.edgesuite.net https://steamcommunity-a.akamaihd.net.edgesuite.net {
+    dynamic a steamuserimages-a.akamaihd.net.edgesuite.net 443
+    dynamic a steamstore-a.akamaihd.net.edgesuite.net 443
+    dynamic a eaassets-a.akamaihd.net.edgesuite.net 443
+    dynamic a steamcommunity-a.akamaihd.net.edgesuite.net 443
+    header_up Host steamcommunity.com
+    lb_policy random_choose 5
+		transport http {
+			tls
+			tls_server_name img-s-msn-com.akamaized.net
+			#tls_insecure_skip_verify
+		}
+    }
+}
+
+https://store.steampowered.com:443 https://api.steampowered.com:443 https://help.steampowered.com:443 https://login.steampowered.com:443 https://store.akamai.steamstatic.com:443 {
+#tls self_signed
+tls steamcommunity.crt steamcommunity.key
+    # default/catchall
+    reverse_proxy https://steamuserimages-a.akamaihd.net.edgesuite.net https://steamstore-a.akamaihd.net.edgesuite.net https://eaassets-a.akamaihd.net.edgesuite.net https://steamcommunity-a.akamaihd.net.edgesuite.net {
+    dynamic a steamuserimages-a.akamaihd.net.edgesuite.net 443
+    dynamic a steamstore-a.akamaihd.net.edgesuite.net 443
+    dynamic a eaassets-a.akamaihd.net.edgesuite.net 443
+    dynamic a steamcommunity-a.akamaihd.net.edgesuite.net 443
+    lb_policy random_choose 5
+    header_up Host {host}
+    transport http {
+    tls
+    tls_server_name img-s-msn-com.akamaized.net
+    #tls_insecure_skip_verify
+    }
+    }
+}
+
