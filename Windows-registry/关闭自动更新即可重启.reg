@@ -1,0 +1,33 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\MRT]
+"DontOfferThroughWUAU"=dword:00000001 ;Windows更新不包括恶意软件删除工具
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate]
+"ExcludeWUDriversInQualityUpdate"=dword:00000001  ;Windows更新不包括驱动程序【0包括驱动，1不包括驱动】
+"DisableOSUpgrade"=dword:00000001 ;屏蔽Windows 10升级提醒
+"DoNotConnectToWindowsUpdateInternetLocations"=dword:00000001 ;微软网页介绍
+"DisableWindowsUpdateAccess"=dword:00000001  ;微软网页介绍
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU]
+"AUOptions"=dword:00000001 ;此项设置在组策略 / 计算机配置 / 管理模板 / Windows组件 /Windows更新 →【配置自动更新】已禁用
+; 数值名称：AUOptions
+; 数值数据：1 到 5 
+; 1：自动更新中的“保持我的计算机最新”已被禁用。 
+; 2：提醒下载和安装。 
+; 3：自动下载并提醒安装。 
+; 4：自动下载并自动执行计划的安装。 
+; 5：允许本地管理员设置。 
+
+"NoAutoUpdate"=dword:00000001 ;【0：启用自动更新（默认）；1禁用自动更新。 】
+"NoAUShutdownOption"=dword:00000001 ;关闭Windows时对话框不显示"安装更新并关机"
+"AutoInstallMinorUpdates"=dword:00000000 ;自动安装无需重启的更新【0不自动安装，1自动安装】
+"NoAutoRebootWithLoggedOnUsers"=dword:00000001 ;更新挂起时如果有用户登录不自动重启计算机【0重启，1不重启】
+"UseWUServer"=dword:00000001 ;微软网页介绍
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update]
+"AUOptions"=dword:00000001 ;将Windows Update自动更新调整为【从不检查更新(不推荐)】
+"CachedAUOptions"=dword:00000001 ;关闭自动更新
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wuauserv]
+"Start"=dword:00000004 ;服务/ Windows Update / 禁用

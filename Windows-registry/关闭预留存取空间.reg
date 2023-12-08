@@ -1,0 +1,4 @@
+﻿Windows Registry Editor Version 5.00
+关闭预留存取空间
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\ReserveManager]
+"ShippedWithReserves"=dword:00000000

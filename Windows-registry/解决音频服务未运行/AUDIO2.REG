@@ -1,0 +1,25 @@
+Windows Registry Editor Version 5.00
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AudioSrv]
+"DependOnService"=hex(7):50,00,6c,00,75,00,67,00,50,00,6c,00,61,00,79,00,00,00,\
+52,00,70,00,63,00,53,00,73,00,00,00,00,00
+"Description"="管理基于 Windows 的程序的音频设备。如果此服务被终止，音频设备及其音效将不能正常工作。如果此服务被禁用，任何依赖它的服务将无法启动。"
+"DisplayName"="Windows Audio"
+"ErrorControl"=dword:00000001
+"Group"="AudioGroup"
+"ImagePath"=hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,00,\
+74,00,25,00,5c,00,53,00,79,00,73,00,74,00,65,00,6d,00,33,00,32,00,5c,00,73,\
+00,76,00,63,00,68,00,6f,00,73,00,74,00,2e,00,65,00,78,00,65,00,20,00,2d,00,\
+6b,00,20,00,6e,00,65,00,74,00,73,00,76,00,63,00,73,00,00,00
+"ObjectName"="LocalSystem"
+"Start"=dword:00000002
+"Type"=dword:00000020
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AudioSrv\Parameters]
+"ServiceDll"=hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,\
+00,74,00,25,00,5c,00,53,00,79,00,73,00,74,00,65,00,6d,00,33,00,32,00,5c,00,\
+61,00,75,00,64,00,69,00,6f,00,73,00,72,00,76,00,2e,00,64,00,6c,00,6c,00,00,\
+00
+"ServiceDllUnloadOnStop"=dword:00000001
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AudioSrv\Enum]
+"0"="Root\\LEGACY_AUDIOSRV\\0000"
+"Count"=dword:00000001
+"NextInstance"=dword:00000001
